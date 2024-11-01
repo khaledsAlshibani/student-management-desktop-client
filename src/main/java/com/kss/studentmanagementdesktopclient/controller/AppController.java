@@ -39,6 +39,10 @@ public class AppController {
                 fxmlPath = "/com/kss/studentmanagementdesktopclient/view/subject/subject-add-view.fxml";
                 title = "Add Subject";
                 break;
+            case "manage_grades":  // Add this case
+                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/grade/grade-add-view.fxml";
+                title = "Add Grades";
+                break;
             default:
                 throw new IllegalArgumentException("Unknown view: " + view);
         }
