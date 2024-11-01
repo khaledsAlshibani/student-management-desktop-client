@@ -17,7 +17,7 @@ public class App extends Application {
 
         try {
             ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/home-view.fxml", "Home");
-        } catch (IOException e) {
+        } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
     }

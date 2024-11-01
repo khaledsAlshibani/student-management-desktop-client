@@ -1,0 +1,34 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ListView?>
+
+<ScrollPane fx:controller="com.kss.studentmanagementdesktopclient.controller.StudentController"
+            fitToWidth="true"
+            fitToHeight="true"
+            styleClass="main-scrollpane"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <BorderPane styleClass="container">
+        <!-- Sidebar -->
+        <left>
+            <VBox alignment="TOP_LEFT" styleClass="sidebar">
+                <Label text="Student Management App" styleClass="sidebar__title" wrapText="true"/>
+                <VBox styleClass="sidebar__menu">
+                    <Label text="Home" styleClass="sidebar-item sidebar-item--selected"/>
+                    <Label text="Dashboard" styleClass="sidebar-item"/>
+                    <Label text="Manage Students" styleClass="sidebar-item"/>
+                    <Label text="Manage Teachers" styleClass="sidebar-item"/>
+                    <Label text="Manage Subjects" styleClass="sidebar-item"/>
+                    <Label text="Manage Grades" styleClass="sidebar-item"/>
+                </VBox>
+            </VBox>
+        </left>
+
+        <center>
+            <ListView fx:id="studentListView" />
+        </center>
+    </BorderPane>
+</ScrollPane>

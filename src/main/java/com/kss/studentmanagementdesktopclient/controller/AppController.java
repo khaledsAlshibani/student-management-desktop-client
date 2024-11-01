@@ -17,8 +17,8 @@ public class AppController {
 
     private void openStudentManagementView() {
         try {
-            ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/student/student-dashboard-view.fxml", "Home");
-        } catch (IOException e) {
+            ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/student/student-listing-view.fxml", "Home");
+        } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
     }

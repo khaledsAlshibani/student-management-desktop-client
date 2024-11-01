@@ -16,6 +16,14 @@
     -fx-background-color: -bg-color;
 }
 
+/* Button */
+.button {
+    -fx-background-color: -primary-color;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 8px 16px;
+    -fx-font-size: 16px;
+}
+
 /* Sidebar */
 .sidebar {
     -fx-background-color: -secondary-bg-color;
@@ -86,3 +94,21 @@
 .home-content__button:hover {
     -fx-background-color: -third-bg-color;
 }
+
+/* Dashboard Styling */
+.dashboard-container {
+    -fx-padding: 20;
+}
+.dashboard-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+.listing-title {
+    -fx-font-size: 20px;
+    -fx-text-fill: #b0b0b0;
+}
+.student-tilepane {
+    -fx-padding: 20;
+}
+
