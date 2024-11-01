@@ -3,8 +3,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
 
-<ScrollPane fx:controller="com.kss.studentmanagementdesktopclient.controller.StudentController"
+<ScrollPane fx:controller="com.kss.studentmanagementdesktopclient.controller.student.StudentListingController"
             fitToWidth="true"
             fitToHeight="true"
             styleClass="main-scrollpane"
@@ -28,7 +29,24 @@
         </left>
 
         <center>
-            <ListView fx:id="studentListView" />
+            <VBox spacing="20" alignment="TOP_CENTER" styleClass="content">
+
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Start Manage Your Data" styleClass="title"/>
+                    <Label text="Choose what you want to manage" styleClass="subtitle"/>
+                    <Button text="Add Student" styleClass="button" onAction="#openAddStudentView"/>
+                </VBox>
+
+                <!-- Students Listing Section -->
+                <VBox spacing="20" alignment="TOP_CENTER">
+                    <Label fx:id="studentsTitle" text="Students Listing (n)" styleClass="section-title"/>
+
+                    <!-- Student List -->
+                    <ListView fx:id="studentListView" styleClass="student-list" />
+                </VBox>
+
+            </VBox>
         </center>
     </BorderPane>
 </ScrollPane>

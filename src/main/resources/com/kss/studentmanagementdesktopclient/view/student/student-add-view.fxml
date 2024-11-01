@@ -1,0 +1,63 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.GridPane?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.kss.studentmanagementdesktopclient.controller.student.StudentAddController"
+      style="-fx-padding: 20; -fx-background-color: #f4f4f4;">
+
+    <Label text="Add New Student" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+    <GridPane hgap="10" vgap="10">
+        <!-- Name -->
+        <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="nameField" promptText="Enter student name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <!-- Photo Path -->
+        <Label text="Photo Path:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="photoPathField" promptText="Enter photo path or URL" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <!-- Birthdate -->
+        <Label text="Birthdate:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="birthdatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <!-- Birthplace -->
+        <Label text="Birthplace:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="birthplaceField" promptText="Enter birthplace" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <!-- Gender -->
+        <Label text="Gender:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="genderComboBox" promptText="Select gender" GridPane.rowIndex="4" GridPane.columnIndex="1">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Male"/>
+                    <String fx:value="Female"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <!-- Enrollment Status -->
+        <Label text="Enrollment Status:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <HBox spacing="10" GridPane.rowIndex="5" GridPane.columnIndex="1">
+            <RadioButton text="Enrolled" fx:id="enrolledRadio"/>
+            <RadioButton text="Not Enrolled" fx:id="notEnrolledRadio"/>
+        </HBox>
+
+        <!-- Subjects (Multiple Selection) -->
+        <Label text="Subjects:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <ListView fx:id="subjectsListView" GridPane.rowIndex="6" GridPane.columnIndex="1" prefHeight="100" />
+    </GridPane>
+
+    <!-- Submit Button -->
+    <Button text="Add Student" onAction="#handleAddStudent" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+
+</VBox>

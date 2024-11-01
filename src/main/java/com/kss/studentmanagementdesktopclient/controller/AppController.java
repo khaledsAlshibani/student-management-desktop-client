@@ -3,7 +3,6 @@ package com.kss.studentmanagementdesktopclient.controller;
 import com.kss.studentmanagementdesktopclient.app.ViewManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import java.io.IOException;
 
 public class AppController {
 
