@@ -6,8 +6,8 @@ import org.json.JSONObject;
 public class StudentApiService extends ApiService {
 
     @Override
-    protected String getApiUrl() {
-        return "https://student-management-api-production.up.railway.app/api/students";
+    protected String getApiEndpoint() {
+        return "/students";
     }
 
     // Fetch all students (GET /api/students)

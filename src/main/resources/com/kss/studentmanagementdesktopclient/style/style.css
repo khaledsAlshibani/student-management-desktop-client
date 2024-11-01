@@ -5,6 +5,7 @@
     -secondary-bg-color: #1A1B1F;
     -third-bg-color: #282A30;
     -primary-color: #029167;
+    -border-color: #282A30;
     -text-color: #ffffff;
     -subtext-color: #b0b0b0;
 
@@ -22,6 +23,7 @@
     -fx-text-fill: #ffffff;
     -fx-padding: 8px 16px;
     -fx-font-size: 16px;
+    -fx-cursor: HAND;
 }
 
 /* Sidebar */
@@ -34,15 +36,18 @@
     -fx-border-width: 0 3px 0 0;
     -fx-border-style: solid;
 }
+
 .sidebar__title {
     -fx-text-fill: -subtext-color;
     -fx-font-size: 18px;
     -fx-color: -primary-color;
     -fx-padding: 0 32;
 }
+
 .sidebar__menu {
     -fx-spacing: 10;
 }
+
 .sidebar-item {
     -fx-text-fill: -text-color;
     -fx-font-size: 14px;
@@ -52,10 +57,12 @@
     /*-fx-border-radius: 5px;*/
     /*-fx-background-radius: 5px;*/
 }
+
 .sidebar-item--selected, .sidebar-item:hover {
     -fx-background-color: -primary-color;
     -fx-text-fill: -text-color;
 }
+
 .sidebar-item--selected {
     -fx-font-weight: bold;
 }
@@ -66,22 +73,12 @@
     -fx-spacing: 30;
     -fx-padding: 40px 0;
 }
-.home-content__headings {
+
+.home-content__cards {
     -fx-spacing: 10;
 }
-.home-content__heading {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: -text-color;
-}
-.home-content__subheading {
-    -fx-font-size: 16px;
-    -fx-text-fill: -subtext-color;
-}
-.home-content__buttons {
-    -fx-spacing: 10;
-}
-.home-content__button {
+
+.home-content__card {
     -fx-font-size: 16px;
     -fx-text-fill: -text-color;
     -fx-background-color: -secondary-bg-color;
@@ -91,24 +88,143 @@
     -fx-cursor: HAND;
     -fx-alignment: CENTER_LEFT;
 }
-.home-content__button:hover {
+
+.home-content__card:hover {
     -fx-background-color: -third-bg-color;
 }
 
-/* Dashboard Styling */
-.dashboard-container {
-    -fx-padding: 20;
-}
-.dashboard-title {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #ffffff;
-}
-.listing-title {
-    -fx-font-size: 20px;
-    -fx-text-fill: #b0b0b0;
-}
-.student-tilepane {
-    -fx-padding: 20;
+/* Global Style */
+.title__wrapper {
+    -fx-spacing: 10;
 }
 
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-color;
+}
+
+.subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: -subtext-color;
+}
+
+.content {
+    -fx-padding: 40;
+    -fx-spacing: 30;
+}
+
+/* Form Controls */
+.form {
+    -fx-spacing: 35;
+}
+
+.form__item {
+    -fx-spacing: 10;
+}
+
+.form__label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -primary-color;
+}
+
+.input, .select, .listview, .date-picker, .radio-hbox {
+    -fx-min-width: 600px;
+}
+
+.input,
+.date-picker .text-field,
+.select .text-field {
+    -fx-background-color: -secondary-bg-color;
+    -fx-text-fill: -text-color;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 10 20;
+}
+
+.input:focused,
+.date-picker .text-field:focused,
+.select .text-field:focused {
+    -fx-border-color: -primary-color;
+}
+
+.select {
+    -fx-background-color: -secondary-bg-color;
+    -fx-text-fill: -text-color;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    /*-fx-padding: 5;*/
+}
+.select:focused {
+    -fx-border-color: -primary-color;
+}
+.select .arrow-button {
+    -fx-background-color: -secondary-bg-color;
+    -fx-border-color: -border-color;
+    -fx-padding: 5;
+}
+.select .arrow-button:hover {
+    -fx-background-color: -primary-color;
+}
+.select .list-view {
+/* Popup List */
+    -fx-background-color: -secondary-bg-color;
+    -fx-border-color: -border-color;
+}
+.select .list-cell {
+    -fx-background-color: -secondary-bg-color;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 5;
+}
+.select .list-cell:hover {
+    -fx-background-color: -secondary-bg-color;
+    -fx-text-fill: #ffffff;
+}
+.select .list-cell:selected {
+    -fx-background-color: -secondary-bg-color;
+    -fx-text-fill: #ffffff;
+}
+
+.date-picker {
+    -fx-background-color: -secondary-bg-color;
+    -fx-text-fill: -text-color;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker:focused {
+    -fx-border-color: -primary-color;
+}
+
+.radio-hbox .radio {
+    -fx-text-fill: -subtext-color;
+    -spacing: 20;
+    -fx-cursor: HAND;
+}
+
+.radio:hover {
+    -fx-text-fill: -primary-color;
+}
+
+/* ListView styling */
+.listview {
+    -fx-background-color: -secondary-bg-color;
+    -fx-border-color: -border-color;
+    -fx-control-inner-background: -bg-color;
+    -fx-text-fill: -text-color;
+    -fx-padding: 5;
+    -fx-min-height: 100px;
+}
+
+.listview .list-cell {
+    -fx-text-fill: -text-color;
+    -fx-background-color: -secondary-bg-color;
+}
+
+.listview .list-cell:selected, .listview .list-cell:hover {
+    -fx-background-color: -primary-color;
+    -fx-text-fill: -text-color;
+}

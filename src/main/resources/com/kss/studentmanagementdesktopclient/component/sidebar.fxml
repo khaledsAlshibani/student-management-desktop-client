@@ -1,0 +1,16 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox alignment="TOP_LEFT" styleClass="sidebar"
+      fx:controller="com.kss.studentmanagementdesktopclient.controller.SidebarController"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <Label text="Student Management App" styleClass="sidebar__title" wrapText="true"/>
+    <VBox styleClass="sidebar__menu">
+        <Label fx:id="homeLabel" text="Home" styleClass="sidebar-item, sidebar-item--selected"/>
+        <Label fx:id="dashboardLabel" text="Dashboard" styleClass="sidebar-item"/>
+        <Label fx:id="manageStudentsLabel" text="Manage Students" styleClass="sidebar-item"/>
+        <Label fx:id="manageTeachersLabel" text="Manage Teachers" styleClass="sidebar-item"/>
+        <Label fx:id="manageSubjectsLabel" text="Manage Subjects" styleClass="sidebar-item"/>
+        <Label fx:id="manageGradesLabel" text="Manage Grades" styleClass="sidebar-item"/>
+    </VBox>
+</VBox>

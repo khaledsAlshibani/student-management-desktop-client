@@ -15,17 +15,7 @@
     <BorderPane styleClass="container">
         <!-- Sidebar -->
         <left>
-            <VBox alignment="TOP_LEFT" styleClass="sidebar">
-                <Label text="Student Management App" styleClass="sidebar__title" wrapText="true"/>
-                <VBox styleClass="sidebar__menu">
-                    <Label text="Home" styleClass="sidebar-item sidebar-item--selected"/>
-                    <Label text="Dashboard" styleClass="sidebar-item"/>
-                    <Label text="Manage Students" styleClass="sidebar-item"/>
-                    <Label text="Manage Teachers" styleClass="sidebar-item"/>
-                    <Label text="Manage Subjects" styleClass="sidebar-item"/>
-                    <Label text="Manage Grades" styleClass="sidebar-item"/>
-                </VBox>
-            </VBox>
+            <fx:include fx:id="sidebar" source="../../component/sidebar.fxml"/>
         </left>
 
         <center>
@@ -39,11 +29,11 @@
                 </VBox>
 
                 <!-- Students Listing Section -->
-                <VBox spacing="20" alignment="TOP_CENTER">
+                <VBox spacing="20" alignment="TOP_CENTER" styleClass="students__listing">
                     <Label fx:id="studentsTitle" text="Students Listing (n)" styleClass="section-title"/>
 
                     <!-- Student List -->
-                    <ListView fx:id="studentListView" styleClass="student-list" />
+                    <ListView fx:id="studentListView" styleClass="students__listing-item" />
                 </VBox>
 
             </VBox>

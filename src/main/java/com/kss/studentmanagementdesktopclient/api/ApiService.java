@@ -10,26 +10,62 @@ import java.nio.charset.StandardCharsets;
 
 public abstract class ApiService {
 
-    protected abstract String getApiUrl();
+    protected abstract String getApiEndpoint();
+
+    // Variable to store and log the selected URL source only once
+    private static String apiBaseUrl = null;
+
+    private String getApiFullUrl() {
+        if (apiBaseUrl == null) {
+            String localhostUrl = "http://localhost:8080/api";
+            String onlineUrl = "https://student-management-api-production.up.railway.app/api";
+            String endpoint = getApiEndpoint();
+
+            // Test if the localhost URL is reachable
+            if (isUrlReachable(localhostUrl + endpoint)) {
+                apiBaseUrl = localhostUrl;
+                System.out.println("API is running from localhost: " + apiBaseUrl + endpoint);
+            } else {
+                apiBaseUrl = onlineUrl;
+                System.out.println("API is running from online server: " + apiBaseUrl + endpoint);
+            }
+        }
+        return apiBaseUrl + getApiEndpoint();
+    }
+
+    private boolean isUrlReachable(String urlStr) {
+        try {
+            URL url = new URL(urlStr);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("HEAD");
+            conn.setConnectTimeout(2000); // Timeout in 2 seconds
+            conn.connect();
+            int responseCode = conn.getResponseCode();
+            conn.disconnect();
+            return (responseCode == HttpURLConnection.HTTP_OK);
+        } catch (IOException e) {
+            return false; // If an exception occurs, URL is not reachable
+        }
+    }
 
     public JSONArray fetchAll() {
-        return (JSONArray) sendRequest("GET", null, getApiUrl());
+        return (JSONArray) sendRequest("GET", null, getApiFullUrl());
     }
 
     public JSONObject fetchById(Long id) {
-        return (JSONObject) sendRequest("GET", null, getApiUrl() + "/" + id);
+        return (JSONObject) sendRequest("GET", null, getApiFullUrl() + "/" + id);
     }
 
     public JSONObject create(JSONObject jsonData) {
-        return (JSONObject) sendRequest("POST", jsonData, getApiUrl());
+        return (JSONObject) sendRequest("POST", jsonData, getApiFullUrl());
     }
 
     public JSONObject update(Long id, JSONObject jsonData) {
-        return (JSONObject) sendRequest("PUT", jsonData, getApiUrl() + "/" + id);
+        return (JSONObject) sendRequest("PUT", jsonData, getApiFullUrl() + "/" + id);
     }
 
     public boolean delete(Long id) {
-        return sendRequest("DELETE", null, getApiUrl() + "/" + id) == null; // Returns true if delete was successful
+        return sendRequest("DELETE", null, getApiFullUrl() + "/" + id) == null; // Returns true if delete was successful
     }
 
     private Object sendRequest(String method, JSONObject jsonData, String urlStr) {

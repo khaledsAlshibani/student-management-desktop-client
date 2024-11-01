@@ -10,31 +10,21 @@
     <BorderPane styleClass="container">
         <!-- Sidebar -->
         <left>
-            <VBox alignment="TOP_LEFT" styleClass="sidebar">
-                <Label text="Student Management App" styleClass="sidebar__title" wrapText="true"/>
-                <VBox styleClass="sidebar__menu">
-                    <Label text="Home" styleClass="sidebar-item, sidebar-item--selected"/>
-                    <Label text="Dashboard" styleClass="sidebar-item"/>
-                    <Label text="Manage Students" styleClass="sidebar-item"/>
-                    <Label text="Manage Teachers" styleClass="sidebar-item"/>
-                    <Label text="Manage Subjects" styleClass="sidebar-item"/>
-                    <Label text="Manage Grades" styleClass="sidebar-item"/>
-                </VBox>
-            </VBox>
+            <fx:include fx:id="sidebar" source="../component/sidebar.fxml"/>
         </left>
 
         <!-- Main Content -->
         <center>
             <VBox alignment="CENTER" styleClass="home-content">
-                <VBox alignment="CENTER" styleClass="home-content__headings">
-                    <Label text="Start Manage Your Data" styleClass="home-content__heading"/>
-                    <Label text="Choose what you want to manage" styleClass="home-content__subheading"/>
+                <VBox alignment="CENTER" styleClass="title__wrapper">
+                    <Label text="Start Manage Your Data" styleClass="title"/>
+                    <Label text="Choose what you want to manage" styleClass="subtitle"/>
                 </VBox>
-                <VBox alignment="CENTER" styleClass="home-content__buttons">
-                    <Button text="Manage Students" fx:id="manageStudentsButton" styleClass="home-content__button"/>
-                    <Button text="Manage Teachers" styleClass="home-content__button"/>
-                    <Button text="Manage Subjects" styleClass="home-content__button"/>
-                    <Button text="Manage Grades" styleClass="home-content__button"/>
+                <VBox alignment="CENTER" styleClass="home-content__cards">
+                    <Button text="Manage Students" fx:id="manageStudentsButton" styleClass="home-content__card"/>
+                    <Button text="Manage Teachers" fx:id="manageTeachersButton" styleClass="home-content__card"/>
+                    <Button text="Manage Subjects" fx:id="manageSubjectsButton" styleClass="home-content__card"/>
+                    <Button text="Manage Grades" fx:id="manageGradesButton" styleClass="home-content__card"/>
                 </VBox>
             </VBox>
         </center>
