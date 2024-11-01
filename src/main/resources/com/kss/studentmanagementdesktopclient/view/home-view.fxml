@@ -1,0 +1,36 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+  <!-- Sidebar -->
+  <left>
+    <VBox alignment="TOP_LEFT" styleClass="sidebar">
+      <Label text="Home" styleClass="sidebar-item, sidebar-item--selected"/>
+      <Label text="Dashboard" styleClass="sidebar-item"/>
+      <Label text="Manage Students" styleClass="sidebar-item"/>
+      <Label text="Manage Teachers" styleClass="sidebar-item"/>
+      <Label text="Manage Subjects" styleClass="sidebar-item"/>
+      <Label text="Manage Grade" styleClass="sidebar-item"/>
+    </VBox>
+  </left>
+
+  <!-- Main Content -->
+  <center>
+    <VBox alignment="CENTER" spacing="20" styleClass="main-content">
+      <Label text="Start Manage Your Data" styleClass="main-heading"/>
+      <Label text="Choose what you want to manage" styleClass="subheading"/>
+      <GridPane hgap="20" vgap="20" alignment="CENTER">
+        <children>
+          <Button text="Manage Students" styleClass="content-button" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+          <Button text="Manage Teachers" styleClass="content-button" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+          <Button text="Manage Subjects" styleClass="content-button" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+          <Button text="Manage Grades" styleClass="content-button" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        </children>
+      </GridPane>
+    </VBox>
+  </center>
+</BorderPane>
