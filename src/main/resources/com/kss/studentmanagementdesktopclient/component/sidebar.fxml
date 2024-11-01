@@ -6,11 +6,11 @@
       xmlns:fx="http://javafx.com/fxml/1">
     <Label text="Student Management App" styleClass="sidebar__title" wrapText="true"/>
     <VBox styleClass="sidebar__menu">
-        <Label fx:id="homeLabel" text="Home" styleClass="sidebar-item, sidebar-item--selected"/>
+<!--        <Label fx:id="homeLabel" text="Home" styleClass="sidebar-item, sidebar-item&#45;&#45;selected"/>-->
         <Label fx:id="dashboardLabel" text="Dashboard" styleClass="sidebar-item"/>
-        <Label fx:id="manageStudentsLabel" text="Manage Students" styleClass="sidebar-item"/>
-        <Label fx:id="manageTeachersLabel" text="Manage Teachers" styleClass="sidebar-item"/>
-        <Label fx:id="manageSubjectsLabel" text="Manage Subjects" styleClass="sidebar-item"/>
-        <Label fx:id="manageGradesLabel" text="Manage Grades" styleClass="sidebar-item"/>
+        <Label fx:id="manageStudentsLabel" text="Add Students" styleClass="sidebar-item"/>
+        <Label fx:id="manageTeachersLabel" text="Add Teachers" styleClass="sidebar-item"/>
+        <Label fx:id="manageSubjectsLabel" text="Add Subjects" styleClass="sidebar-item"/>
+        <Label fx:id="manageGradesLabel" text="Add Grades" styleClass="sidebar-item"/>
     </VBox>
 </VBox>

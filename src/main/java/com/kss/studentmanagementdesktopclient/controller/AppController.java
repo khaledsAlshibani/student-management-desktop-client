@@ -24,24 +24,20 @@ public class AppController {
                 title = "Home";
                 break;
             case "dashboard":
-                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/dashboard.fxml";
+                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/dashboard-view.fxml";
                 title = "Dashboard";
                 break;
             case "manage_students":
-                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/student/student-listing-view.fxml";
-                title = "Student Listing";
+                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/student/student-add-view.fxml";
+                title = "Add Student";
                 break;
             case "manage_teachers":
-                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/teacher/manage_teachers.fxml";
-                title = "Teachers";
+                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/teacher/teacher-add-view.fxml";
+                title = "Add Teacher";
                 break;
             case "manage_subjects":
-                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/subject/manage_subjects.fxml";
-                title = "Subjects";
-                break;
-            case "manage_grades":
-                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/grade/manage_grades.fxml";
-                title = "Grades";
+                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/subject/subject-add-view.fxml";
+                title = "Add Subject";
                 break;
             default:
                 throw new IllegalArgumentException("Unknown view: " + view);

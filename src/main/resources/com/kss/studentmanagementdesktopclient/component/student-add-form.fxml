@@ -1,0 +1,79 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<VBox alignment="TOP_LEFT" styleClass="content"
+      fx:controller="com.kss.studentmanagementdesktopclient.controller.student.StudentAddController"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+    <Label text="Add New Student" styleClass="title"/>
+
+    <GridPane hgap="10" vgap="15" styleClass="form">
+
+        <!-- Name -->
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form__item">
+            <Label text="Name*" styleClass="form__label"/>
+            <TextField fx:id="nameField" promptText="Enter student name" styleClass="input"/>
+        </VBox>
+
+        <!-- Photo Path -->
+        <VBox GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form__item">
+            <Label text="Photo Path*" styleClass="form__label"/>
+            <TextField fx:id="photoPathField" promptText="Enter photo path or URL" styleClass="input"/>
+        </VBox>
+
+        <!-- Birthdate -->
+        <VBox GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form__item">
+            <Label text="Birthdate*" styleClass="form__label"/>
+            <DatePicker fx:id="birthdatePicker" styleClass="date-picker"/>
+        </VBox>
+
+        <!-- Birthplace -->
+        <VBox GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="form__item">
+            <Label text="Birthplace*" styleClass="form__label"/>
+            <TextField fx:id="birthplaceField" promptText="Enter birthplace" styleClass="input"/>
+        </VBox>
+
+        <!-- Gender -->
+        <VBox GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="form__item">
+            <Label text="Gender*" styleClass="form__label"/>
+            <ComboBox fx:id="genderComboBox" promptText="Select gender" styleClass="select">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Male"/>
+                        <String fx:value="Female"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+
+        <!-- Enrollment Status -->
+        <VBox GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="form__item">
+            <Label text="Enrollment Status*" styleClass="form__label"/>
+            <HBox spacing="10" styleClass="radio-hbox">
+                <RadioButton text="Enrolled" fx:id="enrolledRadio" styleClass="radio"/>
+                <RadioButton text="Not Enrolled" fx:id="notEnrolledRadio" styleClass="radio"/>
+            </HBox>
+        </VBox>
+
+        <!-- Subjects (Multiple Selection) -->
+        <VBox GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="form__item">
+            <Label text="Subjects*" styleClass="form__label"/>
+            <ListView fx:id="subjectsListView" prefHeight="100" styleClass="listview"/>
+        </VBox>
+    </GridPane>
+
+    <!-- Submit Button -->
+    <HBox alignment="TOP_LEFT">
+        <Button text="Add Student" onAction="#handleAddStudent" styleClass="button"/>
+    </HBox>
+</VBox>

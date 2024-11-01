@@ -5,6 +5,10 @@ module com.kss.studentmanagementdesktopclient {
 
     opens com.kss.studentmanagementdesktopclient to javafx.fxml;
     opens com.kss.studentmanagementdesktopclient.controller to javafx.fxml;
-    exports com.kss.studentmanagementdesktopclient;
+
     opens com.kss.studentmanagementdesktopclient.controller.student to javafx.fxml;
+    opens com.kss.studentmanagementdesktopclient.controller.subject to javafx.fxml;
+    opens com.kss.studentmanagementdesktopclient.controller.teacher to javafx.fxml;
+
+    exports com.kss.studentmanagementdesktopclient;
 }

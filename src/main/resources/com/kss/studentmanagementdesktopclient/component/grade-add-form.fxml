@@ -1,0 +1,34 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox alignment="TOP_LEFT" styleClass="content"
+      fx:controller="com.kss.studentmanagementdesktopclient.controller.grade.GradeAddController"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- Title -->
+    <Label text="Add New Grade" styleClass="title"/>
+
+    <VBox spacing="15" styleClass="form">
+
+        <!-- Grade Value -->
+        <VBox styleClass="form__item">
+            <Label text="Grade Value*" styleClass="form__label"/>
+            <TextField fx:id="gradeValueField" promptText="Enter grade value" styleClass="input"/>
+        </VBox>
+
+        <!-- Subject -->
+        <VBox styleClass="form__item">
+            <Label text="Subject*" styleClass="form__label"/>
+            <TextField fx:id="subjectField" promptText="Enter subject name" styleClass="input"/>
+        </VBox>
+
+    </VBox>
+
+    <!-- Submit Button -->
+    <HBox alignment="TOP_LEFT" styleClass="form__actions">
+        <Button text="Add Grade" onAction="#handleAddGrade" styleClass="button"/>
+    </HBox>
+</VBox>

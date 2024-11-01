@@ -6,7 +6,6 @@ import java.util.function.Consumer;
 
 public class SidebarController {
 
-    @FXML private Label homeLabel;
     @FXML private Label dashboardLabel;
     @FXML private Label manageStudentsLabel;
     @FXML private Label manageTeachersLabel;
@@ -21,7 +20,6 @@ public class SidebarController {
 
     @FXML
     private void initialize() {
-        homeLabel.setOnMouseClicked(event -> navigate("home"));
         dashboardLabel.setOnMouseClicked(event -> navigate("dashboard"));
         manageStudentsLabel.setOnMouseClicked(event -> navigate("manage_students"));
         manageTeachersLabel.setOnMouseClicked(event -> navigate("manage_teachers"));
