@@ -4,7 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 
-<ScrollPane fitToWidth="true" fitToHeight="true" styleClass="main-scrollpane" xmlns="http://javafx.com/javafx"
+<ScrollPane fx:controller="com.kss.studentmanagementdesktopclient.controller.AppController"
+            fitToWidth="true" fitToHeight="true" styleClass="main-scrollpane" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1">
     <BorderPane styleClass="container">
         <!-- Sidebar -->
@@ -30,7 +31,7 @@
                     <Label text="Choose what you want to manage" styleClass="home-content__subheading"/>
                 </VBox>
                 <VBox alignment="CENTER" styleClass="home-content__buttons">
-                    <Button text="Manage Students" styleClass="home-content__button"/>
+                    <Button text="Manage Students" fx:id="manageStudentsButton" styleClass="home-content__button"/>
                     <Button text="Manage Teachers" styleClass="home-content__button"/>
                     <Button text="Manage Subjects" styleClass="home-content__button"/>
                     <Button text="Manage Grades" styleClass="home-content__button"/>

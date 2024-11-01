@@ -27,7 +27,7 @@
     -fx-border-style: solid;
 }
 .sidebar__title {
-    -fx-text-fill: -primary-color;
+    -fx-text-fill: -subtext-color;
     -fx-font-size: 18px;
     -fx-color: -primary-color;
     -fx-padding: 0 32;
