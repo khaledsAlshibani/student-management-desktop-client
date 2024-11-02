@@ -2,6 +2,7 @@ package com.kss.studentmanagementdesktopclient.controller.student;
 
 import com.kss.studentmanagementdesktopclient.api.StudentApiService;
 import com.kss.studentmanagementdesktopclient.app.DataReceiver;
+import com.kss.studentmanagementdesktopclient.app.ViewManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -103,7 +104,6 @@ public class StudentUpdateController implements DataReceiver {
 
     @FXML
     private void handleDeleteStudent() {
-        // Confirm deletion
         Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmAlert.setTitle("Delete Student");
         confirmAlert.setHeaderText("Are you sure you want to delete this student?");
@@ -116,7 +116,7 @@ public class StudentUpdateController implements DataReceiver {
 
                     if (isDeleted) {
                         showAlert("Success", "Student deleted successfully.");
-                        // Optional: Redirect to the listing view or close the update view
+                        ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/student/student-listing-view.fxml", "Student Listing");
                     } else {
                         showAlert("Error", "Failed to delete student.");
                     }
