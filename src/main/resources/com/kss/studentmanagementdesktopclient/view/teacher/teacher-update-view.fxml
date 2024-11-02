@@ -38,12 +38,6 @@
                     <TextField fx:id="teacherNameField" promptText="Enter teacher name" styleClass="input"/>
                 </HBox>
 
-                <!-- Subjects -->
-                <VBox spacing="10" styleClass="subjects-container">
-                    <Label text="Subjects" styleClass="form__label"/>
-                    <ListView fx:id="subjectListView" styleClass="slistview"/>
-                </VBox>
-
                 <!-- Actions -->
                 <HBox spacing="10">
                     <Button text="Update Teacher" onAction="#handleUpdateTeacher" styleClass="button"/>

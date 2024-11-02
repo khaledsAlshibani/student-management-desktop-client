@@ -1,12 +1,19 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
 
 <ScrollPane
-            fitToWidth="true"
-            fitToHeight="true"
-            styleClass="main-scrollpane"
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml">
+        fx:controller="com.kss.studentmanagementdesktopclient.controller.teacher.TeacherAddController"
+        fitToWidth="true"
+        fitToHeight="true"
+        styleClass="main-scrollpane"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml">
 
     <BorderPane styleClass="container">
 
@@ -17,7 +24,23 @@
 
         <!-- Main Content -->
         <center>
-            <fx:include fx:id="form" source="../../component/teacher-add-form.fxml"/>
+            <VBox alignment="TOP_LEFT" styleClass="content">
+
+                <!-- Title -->
+                <GridPane hgap="10" vgap="15" styleClass="form">
+                    <!-- Teacher Name -->
+                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form__item">
+                        <Label text="Teacher Name*" styleClass="form__label"/>
+                        <TextField fx:id="teacherNameField" promptText="Enter teacher name" styleClass="input"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Submit Button -->
+                <HBox alignment="TOP_LEFT" styleClass="form__actions">
+                    <Button text="Add Teacher" onAction="#handleAddTeacher" styleClass="button"/>
+                </HBox>
+            </VBox>
+
         </center>
     </BorderPane>
 </ScrollPane>

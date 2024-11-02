@@ -1,12 +1,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
 
 <ScrollPane
-            fitToWidth="true"
-            fitToHeight="true"
-            styleClass="main-scrollpane"
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml">
+        fx:controller="com.kss.studentmanagementdesktopclient.controller.teacher.TeacherListingController"
+        fitToWidth="true"
+        fitToHeight="true"
+        styleClass="main-scrollpane"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml">
 
     <BorderPane styleClass="container">
 
@@ -17,7 +22,19 @@
 
         <!-- Main Content -->
         <center>
-            <fx:include fx:id="content" source="../../component/teacher-listing.fxml"/>
+
+            <VBox alignment="TOP_LEFT" styleClass="content">
+
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Start Manage Your Data" styleClass="title"/>
+                    <Label text="Choose what you want to manage" styleClass="subtitle"/>
+                    <Button text="Add Teacher" styleClass="button" onAction="#openAddTeacher"/>
+                </VBox>
+
+                <!-- Teacher List -->
+                <ListView fx:id="teacherListView" styleClass="slistview"/>
+
+            </VBox>
         </center>
     </BorderPane>
 </ScrollPane>
