@@ -1,6 +1,12 @@
+<div style="text-align: center;">
+
 # Student Management Desktop Client
 
+![Home Screen](screenshots/home.png)
+
 This is a simple JavaFX-based desktop application developed as a college assignment. The application serves as a client for managing students, teachers, subjects, and grades within a student management system. It interacts with an independent REST API for CRUD operations, which is hosted [here](https://github.com/khaledsAlshibani/student-management-api). Note that this project is designed for learning purposes, and as such, it has minimal security.
+
+</div>
 
 ## Overview
 
@@ -12,6 +18,23 @@ The **Student Management Desktop Client** allows users to perform the following 
 - **Grade Management**: Add, view, and delete grades associated with selected subjects.
 
 The project aims to provide a basic understanding of client-server communication through REST APIs, as well as practical experience in building desktop applications with JavaFX.
+
+### Screenshots
+
+<div style="text-align: center;">
+
+![Home Screen](screenshots/home.png)
+*Home screen showing quick links to different management sections.*
+
+![Student Listing Screen](screenshots/students-listing.png)
+*Student listing screen, where users can view and manage student details.*
+
+![Add New Student Screen](screenshots/add-student.png)
+*Form for adding a new student with fields for name, photo, birthdate, gender, etc.*
+
+</div>
+
+---
 
 ## Technologies Used
 
@@ -45,7 +68,6 @@ The project consists of a **JavaFX client** and an independent **API backend**. 
 ## How to Use
 
 1. **Set Up the API**: Ensure that the REST API is running. Follow the setup instructions in the [student-management-api](https://github.com/khaledsAlshibani/student-management-api) repository to deploy the API locally or use the provided online URL.
-
 2. **Build & Run**
 
 ## Features

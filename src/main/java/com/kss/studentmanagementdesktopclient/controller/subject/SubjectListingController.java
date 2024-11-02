@@ -21,8 +21,6 @@ public class SubjectListingController implements Initializable {
 
     @FXML
     private ListView<String> subjectListView;
-    @FXML
-    private Label subjectsTitle;
 
     private final SubjectApiService subjectApiService = new SubjectApiService();
 
@@ -70,7 +68,6 @@ public class SubjectListingController implements Initializable {
                 subjectListView.getItems().add("ID: " + subjectId + ", " + subjectName);
             }
 
-            subjectsTitle.setText("Subjects Listing (" + subjects.length() + ")");
         } else {
             System.err.println("No subjects found or failed to retrieve subject data.");
         }
@@ -89,7 +86,7 @@ public class SubjectListingController implements Initializable {
             ViewManager.switchSceneWithData("/com/kss/studentmanagementdesktopclient/view/subject/subject-update-view.fxml", "Update Subject", subjectId);
         } catch (RuntimeException e) {
             System.err.println("Failed to open subject update form.");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -103,7 +100,7 @@ public class SubjectListingController implements Initializable {
             ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/subject/subject-add-view.fxml", "Add Subject");
         } catch (RuntimeException e) {
             System.err.println("Failed to open add subject view.");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

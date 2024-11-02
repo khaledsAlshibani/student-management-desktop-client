@@ -4,8 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 
-<ScrollPane
-            fitToWidth="true" fitToHeight="true" styleClass="main-scrollpane" xmlns="http://javafx.com/javafx"
+<ScrollPane fitToWidth="true" fitToHeight="true" styleClass="main-scrollpane" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1">
     <BorderPane styleClass="container">
         <!-- Sidebar -->
@@ -17,14 +16,14 @@
         <center>
             <VBox alignment="CENTER" styleClass="home-content">
                 <VBox alignment="CENTER" styleClass="title__wrapper">
-                    <Label text="Start Manage Your Data" styleClass="title"/>
-                    <Label text="Choose what you want to manage" styleClass="subtitle"/>
+                    <Label text="Quick Links" styleClass="title"/>
+                    <Label text="Choose what to list" styleClass="subtitle"/>
                 </VBox>
                 <VBox alignment="CENTER" styleClass="home-content__cards">
-                    <Button text="Manage Students" fx:id="manageStudentsButton" styleClass="home-content__card"/>
-                    <Button text="Manage Teachers" fx:id="manageTeachersButton" styleClass="home-content__card"/>
-                    <Button text="Manage Subjects" fx:id="manageSubjectsButton" styleClass="home-content__card"/>
-                    <Button text="Manage Grades" fx:id="manageGradesButton" styleClass="home-content__card"/>
+                    <Button text="Students Listing" fx:id="manageStudentsButton" styleClass="home-content__card"/>
+                    <Button text="Teachers Listing" fx:id="manageTeachersButton" styleClass="home-content__card"/>
+                    <Button text="Subjects Listing" fx:id="manageSubjectsButton" styleClass="home-content__card"/>
+                    <Button text="Grades Listing" fx:id="manageGradesButton" styleClass="home-content__card"/>
                 </VBox>
             </VBox>
         </center>

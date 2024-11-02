@@ -46,7 +46,7 @@ public class SidebarController {
 
         switch (view) {
             case "dashboard":
-                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/dashboard-view.fxml";
+                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/home-view.fxml";
                 title = "Dashboard";
                 break;
             case "manage_students":

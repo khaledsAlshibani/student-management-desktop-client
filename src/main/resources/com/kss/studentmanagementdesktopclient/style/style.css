@@ -232,6 +232,9 @@
 .listview .list-cell {
     -fx-text-fill: -text-color;
     -fx-background-color: -secondary-bg-color;
+    -fx-font-size: 14px;
+    -fx-padding: 10 0;
+    -fx-cursor: HAND;
 }
 
 .listview .list-cell:selected, .listview .list-cell:hover {

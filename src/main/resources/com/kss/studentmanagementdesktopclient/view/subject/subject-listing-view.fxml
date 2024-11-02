@@ -24,18 +24,13 @@
 
                 <!-- Header Section -->
                 <VBox alignment="CENTER" spacing="10">
-                    <Label text="Start Manage Your Data" styleClass="title"/>
-                    <Label text="Choose what you want to manage" styleClass="subtitle"/>
+                    <Label text="Subject Listing" styleClass="title"/>
+                    <Label text="double click on student row to update their value" styleClass="subtitle"/>
                     <Button text="Add subject" styleClass="button" onAction="#openAddSubjectView"/>
                 </VBox>
 
-                <!-- subjects Listing Section -->
-                <VBox spacing="20" alignment="TOP_CENTER" styleClass="subjects__listing">
-                    <Label fx:id="subjectsTitle" text="Subjects Listing (n)" styleClass="section-title"/>
-
-                    <!-- subject List -->
-                    <ListView fx:id="subjectListView" styleClass="subjects__listing-item"/>
-                </VBox>
+                <!-- Teacher List -->
+                <ListView fx:id="subjectListView" styleClass="listview"/>
 
             </VBox>
         </center>

@@ -7,7 +7,7 @@
     <Label text="Student Management App" styleClass="sidebar__title" wrapText="true"/>
     <VBox styleClass="sidebar__menu">
 <!--        <Label fx:id="homeLabel" text="Home" styleClass="sidebar-item, sidebar-item&#45;&#45;selected"/>-->
-        <Label fx:id="dashboardLabel" text="Dashboard" styleClass="sidebar-item"/>
+        <Label fx:id="dashboardLabel" text="Home" styleClass="sidebar-item, sidebar-item--selected"/>
         <Label fx:id="manageStudentsLabel" text="Students Listing" styleClass="sidebar-item"/>
         <Label fx:id="manageTeachersLabel" text="Teachers Listing" styleClass="sidebar-item"/>
         <Label fx:id="manageSubjectsLabel" text="Subjects Listing" styleClass="sidebar-item"/>

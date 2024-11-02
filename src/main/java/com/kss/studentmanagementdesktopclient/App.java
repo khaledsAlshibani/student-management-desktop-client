@@ -16,7 +16,7 @@ public class App extends Application {
         stage.setMinHeight(600);
 
         try {
-            ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/dashboard-view.fxml", "Home");
+            ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/home-view.fxml", "Home");
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }

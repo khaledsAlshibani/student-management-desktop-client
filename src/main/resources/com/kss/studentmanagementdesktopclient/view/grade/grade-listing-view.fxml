@@ -1,0 +1,40 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+
+<ScrollPane
+        fx:controller="com.kss.studentmanagementdesktopclient.controller.grade.Gra"
+        fitToWidth="true"
+        fitToHeight="true"
+        styleClass="main-scrollpane"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml">
+
+    <BorderPane styleClass="container">
+
+        <!-- Sidebar -->
+        <left>
+            <fx:include fx:id="sidebar" source="../../component/sidebar.fxml"/>
+        </left>
+
+        <!-- Main Content -->
+        <center>
+
+            <VBox alignment="TOP_LEFT" styleClass="content">
+
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Grades Listing" styleClass="title"/>
+                    <Label text="double click on student row to update their value" styleClass="subtitle"/>
+                    <Button text="Add Teacher" styleClass="button" onAction="#openAddGrade"/>
+                </VBox>
+
+                <!-- Teacher List -->
+                <ListView fx:id="gradeListView" styleClass="listview"/>
+
+            </VBox>
+        </center>
+    </BorderPane>
+</ScrollPane>
