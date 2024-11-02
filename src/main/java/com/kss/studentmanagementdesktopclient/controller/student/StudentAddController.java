@@ -14,6 +14,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller for the Student Add view in the Student Management Desktop Client.
+ * This JavaFX controller is used with `student-add-view.fxml` to add a new student,
+ * including entering details such as name, photo path, birthdate, birthplace, gender,
+ * enrollment status, and selected subjects.
+ */
 public class StudentAddController {
 
     @FXML private TextField nameField;
@@ -23,12 +29,16 @@ public class StudentAddController {
     @FXML private ComboBox<String> genderComboBox;
     @FXML private RadioButton enrolledRadio;
     @FXML private RadioButton notEnrolledRadio;
-    @FXML private VBox subjectsContainer; // Replacing ListView with VBox
+    @FXML private VBox subjectsContainer;
 
     private final StudentApiService studentApiService = new StudentApiService();
     private final SubjectApiService subjectApiService = new SubjectApiService();
     private ToggleGroup enrollmentStatusGroup;
 
+    /**
+     * Initializes the add student view by setting up the enrollment status toggle group,
+     * gender options, and loading subjects into the UI.
+     */
     @FXML
     public void initialize() {
         // Initialize ToggleGroup for enrollment status
@@ -43,6 +53,10 @@ public class StudentAddController {
         loadSubjects();
     }
 
+    /**
+     * Loads all subjects from the API and displays them as checkboxes in the subjects container.
+     * If no subjects are available, displays a message to prompt subject creation.
+     */
     private void loadSubjects() {
         try {
             JSONArray subjectsArray = subjectApiService.getAllSubjects();
@@ -50,7 +64,7 @@ public class StudentAddController {
                 Label noSubjectsLabel = new Label("First create a subject");
                 subjectsContainer.getChildren().add(noSubjectsLabel);
             } else {
-                subjectsContainer.getChildren().clear(); // Clear any existing content
+                subjectsContainer.getChildren().clear();
                 for (int i = 0; i < subjectsArray.length(); i++) {
                     JSONObject subject = subjectsArray.getJSONObject(i);
                     String subjectName = subject.getString("name");
@@ -64,6 +78,10 @@ public class StudentAddController {
         }
     }
 
+    /**
+     * Handles the action of adding a new student. Collects all form data, validates required fields,
+     * and sends the data to the API. Displays success or error messages based on the response.
+     */
     @FXML
     private void handleAddStudent() {
         try {
@@ -120,6 +138,12 @@ public class StudentAddController {
         }
     }
 
+    /**
+     * Displays an information alert with the specified title and message.
+     *
+     * @param title   the title of the alert dialog
+     * @param message the message content of the alert dialog
+     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(title);
@@ -128,6 +152,9 @@ public class StudentAddController {
         alert.showAndWait();
     }
 
+    /**
+     * Clears the input fields in the form, resetting it for a new entry.
+     */
     private void clearForm() {
         nameField.clear();
         photoPathField.clear();

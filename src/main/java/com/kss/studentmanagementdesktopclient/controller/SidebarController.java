@@ -4,6 +4,12 @@ import com.kss.studentmanagementdesktopclient.app.ViewManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+/**
+ * Controller for the sidebar navigation in the Student Management Desktop Client.
+ * This controller is linked to the `sidebar.fxml` file and is responsible for handling
+ * navigation between views for different sections, such as Dashboard, Manage Students,
+ * Manage Teachers, Manage Subjects, and Manage Grades.
+ */
 public class SidebarController {
 
     @FXML private Label dashboardLabel;
@@ -12,9 +18,13 @@ public class SidebarController {
     @FXML private Label manageSubjectsLabel;
     @FXML private Label manageGradesLabel;
 
+    /**
+     * Initializes the sidebar by setting up click handlers on each label to navigate to
+     * the corresponding view. This method is automatically called after the `sidebar.fxml` file
+     * is loaded, binding the UI elements to this controller.
+     */
     @FXML
     private void initialize() {
-        // Set up click handlers to navigate to different views
         dashboardLabel.setOnMouseClicked(event -> loadContent("dashboard"));
         manageStudentsLabel.setOnMouseClicked(event -> loadContent("manage_students"));
         manageTeachersLabel.setOnMouseClicked(event -> loadContent("manage_teachers"));
@@ -22,6 +32,14 @@ public class SidebarController {
         manageGradesLabel.setOnMouseClicked(event -> loadContent("manage_grades"));
     }
 
+    /**
+     * Loads the specified view by switching the scene to the appropriate FXML file.
+     *
+     * @param view the identifier of the view to load. Accepted values are:
+     *             "dashboard", "manage_students", "manage_teachers",
+     *             "manage_subjects", and "manage_grades".
+     * @throws IllegalArgumentException if an unknown view identifier is passed.
+     */
     private void loadContent(String view) {
         String fxmlPath;
         String title;
@@ -40,11 +58,11 @@ public class SidebarController {
                 title = "Manage Teachers";
                 break;
             case "manage_subjects":
-                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/subject/subject-add-view.fxml";
+                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/subject/subject-listing-view.fxml";
                 title = "Manage Subjects";
                 break;
             case "manage_grades":
-                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/grade/grade-add-view.fxml";
+                fxmlPath = "/com/kss/studentmanagementdesktopclient/view/grade/grade-listing-view.fxml";
                 title = "Manage Grades";
                 break;
             default:

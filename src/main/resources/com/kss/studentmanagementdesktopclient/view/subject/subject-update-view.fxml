@@ -1,0 +1,50 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<ScrollPane
+        fx:controller="com.kss.studentmanagementdesktopclient.controller.subject.SubjectUpdateController"
+        fitToWidth="true"
+        fitToHeight="true"
+        styleClass="main-scrollpane"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml">
+
+    <BorderPane styleClass="container">
+
+        <!-- Sidebar -->
+        <left>
+            <fx:include fx:id="sidebar" source="../../component/sidebar.fxml"/>
+        </left>
+
+        <!-- Main Content -->
+        <center>
+            <VBox alignment="TOP_LEFT" styleClass="content">
+
+                <!-- Title -->
+                <Label text="Update Subject" styleClass="title"/>
+
+                <!-- Subject Form -->
+                <VBox spacing="10" styleClass="form">
+                    <!-- Subject Name -->
+                    <Label text="Subject Name*" styleClass="form__label"/>
+                    <TextField fx:id="subjectNameField" promptText="Enter subject name" styleClass="input"/>
+
+                    <!-- Subject Code -->
+                    <Label text="Subject Code*" styleClass="form__label"/>
+                    <TextField fx:id="subjectCodeField" promptText="Enter subject code" styleClass="input"/>
+                </VBox>
+
+                <!-- Actions -->
+                <HBox spacing="10" alignment="TOP_LEFT" styleClass="form__actions">
+                    <Button text="Update Subject" onAction="#handleUpdateSubject" styleClass="button"/>
+                    <Button text="Delete Subject" onAction="#handleDeleteSubject" styleClass="button button--delete"/>
+                </HBox>
+            </VBox>
+        </center>
+    </BorderPane>
+</ScrollPane>

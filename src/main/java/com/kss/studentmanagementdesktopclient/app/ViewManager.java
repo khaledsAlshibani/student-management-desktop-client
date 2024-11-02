@@ -7,19 +7,36 @@ import javafx.scene.control.Alert;
 
 import java.io.IOException;
 
+/**
+ * ViewManager is responsible for managing view transitions within the application.
+ * It handles loading FXML files, setting the application stage, and passing data to
+ * controllers when needed.
+ */
 public class ViewManager {
     private static Stage primaryStage;
 
+    /**
+     * Initializes the ViewManager with the primary stage of the application.
+     *
+     * @param stage the primary stage of the application
+     */
     public static void init(Stage stage) {
         primaryStage = stage;
     }
 
+    /**
+     * Switches the application scene to the specified FXML file without passing any data.
+     *
+     * @param fxmlFilePath the path to the FXML file to load
+     * @param title        the title to set for the primary stage
+     */
     public static void switchScene(String fxmlFilePath, String title) {
         try {
             System.out.println("Loading FXML from: " + ViewManager.class.getResource(fxmlFilePath));
             FXMLLoader loader = new FXMLLoader(ViewManager.class.getResource(fxmlFilePath));
             Scene scene = new Scene(loader.load());
 
+            // Apply CSS stylesheet
             try {
                 scene.getStylesheets().add(ViewManager.class.getResource("/com/kss/studentmanagementdesktopclient/style/style.css").toExternalForm());
             } catch (Exception e) {
@@ -38,12 +55,20 @@ public class ViewManager {
         }
     }
 
+    /**
+     * Switches the application scene to the specified FXML file and passes data to the
+     * controller if it implements the DataReceiver interface.
+     *
+     * @param fxmlFilePath the path to the FXML file to load
+     * @param title        the title to set for the primary stage
+     * @param data         the data to pass to the controller
+     */
     public static void switchSceneWithData(String fxmlFilePath, String title, Object data) {
         try {
             FXMLLoader loader = new FXMLLoader(ViewManager.class.getResource(fxmlFilePath));
-
             Scene scene = new Scene(loader.load());
 
+            // Apply CSS stylesheet
             try {
                 scene.getStylesheets().add(ViewManager.class.getResource("/com/kss/studentmanagementdesktopclient/style/style.css").toExternalForm());
             } catch (Exception e) {
@@ -74,6 +99,13 @@ public class ViewManager {
         }
     }
 
+    /**
+     * Displays an error dialog with the specified title, header, and content message.
+     *
+     * @param title   the title of the error dialog
+     * @param header  the header text of the error dialog
+     * @param content the content text of the error dialog
+     */
     private static void showErrorDialog(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);

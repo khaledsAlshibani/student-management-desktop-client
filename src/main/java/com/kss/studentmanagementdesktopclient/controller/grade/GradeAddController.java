@@ -12,6 +12,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller for the Grade Add view in the Student Management Desktop Client.
+ * This JavaFX controller is used with `grade-add-view.fxml` to add a new grade,
+ * allowing the user to enter a grade value and select associated subjects.
+ */
 public class GradeAddController {
 
     @FXML private TextField gradeValueField;
@@ -20,11 +25,19 @@ public class GradeAddController {
     private final List<CheckBox> subjectCheckboxes = new ArrayList<>();
     private final SubjectApiService subjectApiService = new SubjectApiService();
 
+    /**
+     * Initializes the add grade view by loading all available subjects
+     * and displaying them as checkboxes in the subjects container.
+     */
     @FXML
     private void initialize() {
         loadSubjects();
     }
 
+    /**
+     * Loads all subjects from the API and populates them as checkboxes in the subjects container.
+     * If no subjects are available, displays a message prompting subject creation.
+     */
     private void loadSubjects() {
         JSONArray subjects = subjectApiService.getAllSubjects();
 
@@ -44,6 +57,11 @@ public class GradeAddController {
         }
     }
 
+    /**
+     * Handles the action of adding a new grade. Collects the grade value and selected subjects,
+     * validates required fields, and sends the data to the API. Displays success or error messages
+     * based on the response.
+     */
     @FXML
     private void handleAddGrade() {
         String gradeValue = gradeValueField.getText();
@@ -67,8 +85,6 @@ public class GradeAddController {
         gradeData.put("subjects", selectedSubjects);
 
         // Call API to add grade
-        // Implement addGrade method in GradeApiService if not done yet
-        // Assuming GradeApiService is configured to add the grade data
         JSONObject response = new GradeApiService().addGrade(gradeData);
 
         if (response != null) {
@@ -79,6 +95,12 @@ public class GradeAddController {
         }
     }
 
+    /**
+     * Displays an information alert with the specified title and message.
+     *
+     * @param title   the title of the alert dialog
+     * @param message the message content of the alert dialog
+     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(AlertType.INFORMATION, message, ButtonType.OK);
         alert.setTitle(title);
@@ -86,6 +108,9 @@ public class GradeAddController {
         alert.showAndWait();
     }
 
+    /**
+     * Clears the input fields in the form, resetting it for a new entry.
+     */
     private void clearForm() {
         gradeValueField.clear();
         for (CheckBox checkBox : subjectCheckboxes) {

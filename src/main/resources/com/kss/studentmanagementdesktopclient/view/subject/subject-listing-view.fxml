@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Button?>
 
 <ScrollPane
-        fx:controller="com.kss.studentmanagementdesktopclient.controller.student.StudentListingController"
+        fx:controller="com.kss.studentmanagementdesktopclient.controller.subject.SubjectListingController"
         fitToWidth="true"
         fitToHeight="true"
         styleClass="main-scrollpane"
@@ -26,15 +26,15 @@
                 <VBox alignment="CENTER" spacing="10">
                     <Label text="Start Manage Your Data" styleClass="title"/>
                     <Label text="Choose what you want to manage" styleClass="subtitle"/>
-                    <Button text="Add Student" styleClass="button" onAction="#openAddStudentView"/>
+                    <Button text="Add subject" styleClass="button" onAction="#openAddSubjectView"/>
                 </VBox>
 
-                <!-- Students Listing Section -->
-                <VBox spacing="20" alignment="TOP_CENTER" styleClass="students__listing">
-                    <Label fx:id="studentsTitle" text="Students Listing (n)" styleClass="section-title"/>
+                <!-- subjects Listing Section -->
+                <VBox spacing="20" alignment="TOP_CENTER" styleClass="subjects__listing">
+                    <Label fx:id="subjectsTitle" text="Subjects Listing (n)" styleClass="section-title"/>
 
-                    <!-- Student List -->
-                    <ListView fx:id="studentListView" styleClass="students__listing-item"/>
+                    <!-- subject List -->
+                    <ListView fx:id="subjectListView" styleClass="subjects__listing-item"/>
                 </VBox>
 
             </VBox>

@@ -9,6 +9,11 @@ import javafx.scene.control.ListView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * Controller for the Student Listing view in the Student Management Desktop Client.
+ * This JavaFX controller is used with `student-listing-view.fxml` to display a list of students,
+ * handle double-click events to open the student update form, and navigate to the add student form.
+ */
 public class StudentListingController {
 
     @FXML
@@ -19,6 +24,10 @@ public class StudentListingController {
 
     private final StudentApiService studentApiService = new StudentApiService();
 
+    /**
+     * Initializes the student listing view by loading all students into the list.
+     * Adds an event listener for double-clicking on a student entry to open the update view.
+     */
     @FXML
     public void initialize() {
         System.out.println("Controller Initialized");
@@ -35,6 +44,10 @@ public class StudentListingController {
         });
     }
 
+    /**
+     * Opens the add student view, allowing the user to add a new student to the system.
+     * This action navigates to the `student-add-view.fxml` file.
+     */
     @FXML
     public void openAddStudentView() {
         try {
@@ -45,13 +58,18 @@ public class StudentListingController {
         }
     }
 
+    /**
+     * Opens the update view for the selected student by extracting the student ID from the
+     * selected item and passing it to the `student-update-view.fxml` file.
+     *
+     * @param studentInfo the selected student info string from the list, which includes the student ID.
+     */
     private void openUpdateStudentView(String studentInfo) {
         // Extract the student ID from the selected item
         String studentIdStr = studentInfo.split(",")[0].split(":")[1].trim();
         Long studentId = Long.parseLong(studentIdStr);
 
         try {
-            // Use ViewManager to switch to the main view (AppController) and pass the studentId
             ViewManager.switchSceneWithData("/com/kss/studentmanagementdesktopclient/view/student/student-update-view.fxml", "Update Student", studentId);
         } catch (RuntimeException e) {
             System.err.println("Failed to open update form.");
@@ -59,6 +77,11 @@ public class StudentListingController {
         }
     }
 
+    /**
+     * Loads all students from the API and displays them in the student list. Each entry
+     * in the list contains the student ID, name, birthplace, and enrollment status. The
+     * data loading is handled in a background thread to avoid blocking the UI.
+     */
     private void loadStudents() {
         System.out.println("Loading students...");
         new Thread(() -> {
@@ -82,6 +105,6 @@ public class StudentListingController {
             } else {
                 System.out.println("Failed to load student data.");
             }
-        }).start(); // Run API call in a background thread
+        }).start();
     }
 }
