@@ -68,7 +68,7 @@
         <!-- Subjects (Multiple Selection) -->
         <VBox GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="form__item">
             <Label text="Subjects*" styleClass="form__label"/>
-            <ListView fx:id="subjectsListView" prefHeight="100" styleClass="listview"/>
+            <VBox fx:id="subjectsContainer" styleClass="checkbox-container"/>
         </VBox>
     </GridPane>
 

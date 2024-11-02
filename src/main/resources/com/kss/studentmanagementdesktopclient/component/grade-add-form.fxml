@@ -23,7 +23,7 @@
         <!-- Subject -->
         <VBox GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form__item">
             <Label text="Subject*" styleClass="form__label"/>
-            <TextField fx:id="subjectField" promptText="Enter subject name" styleClass="input"/>
+            <VBox fx:id="subjectsContainer" styleClass="checkbox-container"/>
         </VBox>
 
     </GridPane>

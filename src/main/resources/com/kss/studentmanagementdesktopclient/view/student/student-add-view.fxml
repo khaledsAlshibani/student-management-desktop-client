@@ -1,7 +1,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.ScrollPane?>
 
-<ScrollPane fx:controller="com.kss.studentmanagementdesktopclient.controller.AppController"
+<ScrollPane
             fitToWidth="true"
             fitToHeight="true"
             styleClass="main-scrollpane"

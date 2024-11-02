@@ -1,10 +1,12 @@
 package com.kss.studentmanagementdesktopclient.controller.student;
 
 import com.kss.studentmanagementdesktopclient.api.StudentApiService;
+import com.kss.studentmanagementdesktopclient.api.SubjectApiService;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.collections.FXCollections;
+import javafx.scene.layout.VBox;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,9 +23,10 @@ public class StudentAddController {
     @FXML private ComboBox<String> genderComboBox;
     @FXML private RadioButton enrolledRadio;
     @FXML private RadioButton notEnrolledRadio;
-    @FXML private ListView<CheckBox> subjectsListView;
+    @FXML private VBox subjectsContainer; // Replacing ListView with VBox
 
     private final StudentApiService studentApiService = new StudentApiService();
+    private final SubjectApiService subjectApiService = new SubjectApiService();
     private ToggleGroup enrollmentStatusGroup;
 
     @FXML
@@ -36,13 +39,29 @@ public class StudentAddController {
         // Populate gender options
         genderComboBox.setItems(FXCollections.observableArrayList("Male", "Female"));
 
-        // Populate subjects list with sample data (replace this with real data)
-        subjectsListView.setItems(FXCollections.observableArrayList(
-                new CheckBox("Math"),
-                new CheckBox("Science"),
-                new CheckBox("History"),
-                new CheckBox("Art")
-        ));
+        // Fetch and populate subjects list
+        loadSubjects();
+    }
+
+    private void loadSubjects() {
+        try {
+            JSONArray subjectsArray = subjectApiService.getAllSubjects();
+            if (subjectsArray.length() == 0) {
+                Label noSubjectsLabel = new Label("First create a subject");
+                subjectsContainer.getChildren().add(noSubjectsLabel);
+            } else {
+                subjectsContainer.getChildren().clear(); // Clear any existing content
+                for (int i = 0; i < subjectsArray.length(); i++) {
+                    JSONObject subject = subjectsArray.getJSONObject(i);
+                    String subjectName = subject.getString("name");
+                    CheckBox subjectCheckBox = new CheckBox(subjectName);
+                    subjectsContainer.getChildren().add(subjectCheckBox);
+                }
+            }
+        } catch (Exception e) {
+            showAlert("Error", "Failed to load subjects.");
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -60,9 +79,9 @@ public class StudentAddController {
 
             // Collect selected subjects
             List<String> selectedSubjects = new ArrayList<>();
-            for (CheckBox subjectCheckBox : subjectsListView.getItems()) {
-                if (subjectCheckBox.isSelected()) {
-                    selectedSubjects.add(subjectCheckBox.getText());
+            for (javafx.scene.Node node : subjectsContainer.getChildren()) {
+                if (node instanceof CheckBox && ((CheckBox) node).isSelected()) {
+                    selectedSubjects.add(((CheckBox) node).getText());
                 }
             }
 
@@ -116,8 +135,10 @@ public class StudentAddController {
         birthplaceField.clear();
         genderComboBox.setValue(null);
         enrollmentStatusGroup.selectToggle(null);
-        for (CheckBox subjectCheckBox : subjectsListView.getItems()) {
-            subjectCheckBox.setSelected(false);
+        for (javafx.scene.Node node : subjectsContainer.getChildren()) {
+            if (node instanceof CheckBox) {
+                ((CheckBox) node).setSelected(false);
+            }
         }
     }
 }

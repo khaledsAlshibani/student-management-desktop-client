@@ -16,18 +16,6 @@
             <Label text="Teacher Name*" styleClass="form__label"/>
             <TextField fx:id="teacherNameField" promptText="Enter teacher name" styleClass="input"/>
         </VBox>
-
-        <!-- Subject -->
-        <VBox GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form__item">
-            <Label text="Subject*" styleClass="form__label"/>
-            <TextField fx:id="subjectField" promptText="Enter subject" styleClass="input"/>
-        </VBox>
-
-        <!-- Email -->
-        <VBox GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form__item">
-            <Label text="Email*" styleClass="form__label"/>
-            <TextField fx:id="emailField" promptText="Enter email address" styleClass="input"/>
-        </VBox>
     </GridPane>
 
     <!-- Submit Button -->

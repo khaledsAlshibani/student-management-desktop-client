@@ -5,6 +5,7 @@
     -secondary-bg-color: #1A1B1F;
     -third-bg-color: #282A30;
     -primary-color: #029167;
+    -primary-color-darken: #027150;
     -border-color: #282A30;
     -text-color: #ffffff;
     -subtext-color: #b0b0b0;
@@ -24,6 +25,15 @@
     -fx-padding: 8px 16px;
     -fx-font-size: 16px;
     -fx-cursor: HAND;
+}
+.button--delete {
+    -fx-background-color: #BD3939;
+}
+.button:hover {
+    -fx-background-color: -primary-color-darken;
+}
+.button--delete:hover {
+    -fx-background-color: #AE2C2C;
 }
 
 /* Sidebar */
@@ -227,4 +237,16 @@
 .listview .list-cell:selected, .listview .list-cell:hover {
     -fx-background-color: -primary-color;
     -fx-text-fill: -text-color;
+}
+
+.checkbox-container {
+    -fx-spacing: 10;
+}
+.checkbox-container .check-box {
+    -fx-text-fill: -text-color;
+    -fx-font-size: 14px;
+    -fx-spacing: 50;
+}
+.checkbox-container .check-box:disabled {
+    -fx-text-fill: #777777;
 }

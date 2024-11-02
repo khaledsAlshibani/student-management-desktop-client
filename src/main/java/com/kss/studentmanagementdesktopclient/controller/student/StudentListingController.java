@@ -6,14 +6,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class StudentListingController {
-
-    @FXML
-    private BorderPane container;
 
     @FXML
     private Label studentsTitle;
@@ -27,14 +23,39 @@ public class StudentListingController {
     public void initialize() {
         System.out.println("Controller Initialized");
         loadStudents();
+
+        // Add event listener to handle student selection
+        studentListView.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // Double-click to open update form
+                String selectedStudent = studentListView.getSelectionModel().getSelectedItem();
+                if (selectedStudent != null) {
+                    openUpdateStudentView(selectedStudent);
+                }
+            }
+        });
     }
 
     @FXML
-    private void openAddStudentView() {
+    public void openAddStudentView() {
         try {
-            ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/student/student-add-view.fxml", "Home");
+            ViewManager.switchScene("/com/kss/studentmanagementdesktopclient/view/student/student-add-view.fxml", "Add Student");
         } catch (RuntimeException e) {
-            throw new RuntimeException(e);
+            System.err.println("Failed to open add student form.");
+            e.printStackTrace();
+        }
+    }
+
+    private void openUpdateStudentView(String studentInfo) {
+        // Extract the student ID from the selected item
+        String studentIdStr = studentInfo.split(",")[0].split(":")[1].trim();
+        Long studentId = Long.parseLong(studentIdStr);
+
+        try {
+            // Use ViewManager to switch to the main view (AppController) and pass the studentId
+            ViewManager.switchSceneWithData("/com/kss/studentmanagementdesktopclient/view/student/student-update-view.fxml", "Update Student", studentId);
+        } catch (RuntimeException e) {
+            System.err.println("Failed to open update form.");
+            e.printStackTrace();
         }
     }
 

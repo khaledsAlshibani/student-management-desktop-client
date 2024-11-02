@@ -17,7 +17,7 @@
 
         <!-- Main Content -->
         <center>
-            <fx:include fx:id="form" source="../../component/grade-add-form.fxml"/>
+            <fx:include fx:id="content" source="../../component/teacher-listing.fxml"/>
         </center>
     </BorderPane>
 </ScrollPane>

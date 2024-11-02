@@ -4,10 +4,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 
-<ScrollPane fx:controller="com.kss.studentmanagementdesktopclient.controller.AppController"
+<ScrollPane
             fitToWidth="true" fitToHeight="true" styleClass="main-scrollpane" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1">
-    <BorderPane styleClass="container">
+    <BorderPane fx:id="container" styleClass="container">
         <!-- Sidebar -->
         <left>
             <fx:include fx:id="sidebar" source="../component/sidebar.fxml"/>
