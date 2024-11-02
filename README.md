@@ -19,7 +19,7 @@ The **Student Management Desktop Client** allows users to perform the following 
 
 The project aims to provide a basic understanding of client-server communication through REST APIs, as well as practical experience in building desktop applications with JavaFX.
 
-### Screenshots
+## Screenshots
 
 <div style="text-align: center;">
 
@@ -101,7 +101,6 @@ The project consists of a **JavaFX client** and an independent **API backend**. 
 
 ## Notes
 
-- **Data Synchronization**: As the API and the client are separate, there is no live data synchronization. You will need to refresh views manually to see any updates made through the API.
 - **Weak Error Handling**: While basic error handling is in place, errors are often logged to the console. Future improvements could include more user-friendly error messages and detailed handling for specific issues.
 
 ## Future Enhancements
